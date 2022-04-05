@@ -39,9 +39,13 @@ function logKey(e) {
             }
             element = document.getElementById("title");
             element.textContent = element.textContent.replace("WordleRipoff","GODO");
-            setTimeout("console.log(\"GODO\")",2000);
+            console.log("GODO");
         }
         else{
+            if(j==5){
+                element = document.getElementById("title");
+                element.textContent = "The word was: " + randWord +  " :(";
+            }
             for(let x=0; x<5; x++){
                 for(let y=0; y<5; y++){
                     if(randWord[y] == string[x]){
