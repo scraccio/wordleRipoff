@@ -1,7 +1,6 @@
 function isLetter(str) {
   return str.length === 1 && str.match(/[a-z]/i);
 }
-prompt();
 let min = Math.ceil(0);
 let max = Math.floor(dictionary.length-1);
 let randWord = dictionary[Math.floor(Math.random() * (max - min) + min)];
