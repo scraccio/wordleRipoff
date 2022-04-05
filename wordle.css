@@ -6,6 +6,11 @@ td {
     text-align: center;
 }
 
+tr{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 h1 {
     font-size: 50px;
     font-family: Arial, Helvetica, sans-serif;
