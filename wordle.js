@@ -37,6 +37,8 @@ function logKey(e) {
                     elementX.style.backgroundColor = "green";
                 }
             }
+            element = document.getElementById("title");
+            element.textContent = element.textContent.replace("WordleRipoff","GODO");
             setTimeout("console.log(\"GODO\")",2000);
         }
         else{
