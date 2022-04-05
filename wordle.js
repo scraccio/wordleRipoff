@@ -1,7 +1,7 @@
 function isLetter(str) {
   return str.length === 1 && str.match(/[a-z]/i);
 }
-
+prompt();
 let min = Math.ceil(0);
 let max = Math.floor(dictionary.length-1);
 let randWord = dictionary[Math.floor(Math.random() * (max - min) + min)];
@@ -13,6 +13,7 @@ let curr;
 let string = '';
 document.addEventListener('keydown', logKey);
 let element;
+let finish = false;
 
 function logKey(e) {
     curr = (j+1).toString() + (i+1).toString();
@@ -40,6 +41,7 @@ function logKey(e) {
             element = document.getElementById("title");
             element.textContent = element.textContent.replace("WordleRipoff","GODO");
             console.log("GODO");
+            finish=true;
         }
         else{
             if(j==5){
@@ -69,9 +71,16 @@ function logKey(e) {
             //curr = (j+1).toString() + (i+1).toString();
             console.log(i);
         }
+        if(j==6){
+            element = document.getElementById("retry");
+            element.textContent = "Press 'r' to retry";
+            finish=true;
+            console.log(e.code[e.code.length-1]);
+        }
+
     }
 
-    if(isLetter(e.code[e.code.length-1]) && e.code[0]=='K' && i<=4){
+    if(isLetter(e.code[e.code.length-1]) && e.code[0]=='K' && i<=4 && j<6){
         element = document.getElementById(curr);
         element.textContent = ` ${e.code[e.code.length-1]}`;
         i+=1;
@@ -80,4 +89,26 @@ function logKey(e) {
         //console.log(string);
     }
     //console.log(i);
+    if(e.code == 'KeyR' && finish==true){
+        for(let j=0; j<6; j++){
+            for(let i=0; i<5; i++){
+                let curr = (j+1).toString() + (i+1).toString();
+                console.log((j+1).toString() + (i+1).toString());
+                element = document.getElementById(curr);
+                element.textContent = '';
+                element.style.backgroundColor = "#292929";
+            }
+        }
+        i=0;
+        j=0;
+        finish = false;
+        element = document.getElementById("title");
+        element.textContent = "WordleRipoff";
+        element = document.getElementById("retry");
+        element.textContent = "";
+        min = Math.ceil(0);
+        max = Math.floor(dictionary.length-1);
+        randWord = dictionary[Math.floor(Math.random() * (max - min) + min)];
+        string = '';
+    }
 }
