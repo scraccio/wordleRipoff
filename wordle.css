@@ -21,6 +21,7 @@ body{
 }
 
 .keyboard{
-    width: 60px;
+    bottom: 30px;
+    width: 40px;
     height: 60px;
 }
